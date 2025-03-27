@@ -1,4 +1,4 @@
-import 'package:anymex/widgets/animation/page_transition.dart';
+import 'package:anymex/widgets/animation/page_transition.dart' as custom_transition;
 import 'package:flutter/material.dart';
 
 const Color seedColor = Colors.deepPurple;
@@ -17,7 +17,7 @@ ThemeData lightMode = ThemeData(
   pageTransitionsTheme: PageTransitionsTheme(
     builders: {
       for (var platform in TargetPlatform.values)
-        platform: const FadeForwardsPageTransitionsBuilder(),
+        platform: constcustom_transition.FadeForwardsPageTransitionsBuilder(),
     },
   ),
   textTheme: const TextTheme(
@@ -82,7 +82,7 @@ ThemeData darkMode = ThemeData(
   pageTransitionsTheme: PageTransitionsTheme(
     builders: {
       for (var platform in TargetPlatform.values)
-        platform: const FadeForwardsPageTransitionsBuilder(),
+        platform: constcustom_transition.FadeForwardsPageTransitionsBuilder(),
     },
   ),
   inputDecorationTheme: InputDecorationTheme(
