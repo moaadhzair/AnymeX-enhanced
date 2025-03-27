@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-classcustom_transition.FadeForwardsPageTransitionsBuilder extends PageTransitionsBuilder {
+class FadeForwardsPageTransitionsBuilder extends PageTransitionsBuilder {
   /// Constructs a page transition animation that matches the transition used on
   /// Android U.
-  constcustom_transition.FadeForwardsPageTransitionsBuilder({this.backgroundColor});
+  const FadeForwardsPageTransitionsBuilder({this.backgroundColor});
 
   /// The background color during transition between two routes.
   ///
@@ -144,14 +144,14 @@ class FadeForwardsPageTransition extends StatelessWidget {
     begin: const Offset(0.25, 0.0),
     end: Offset.zero,
   ).chain(
-      CurveTween(curve:custom_transition.FadeForwardsPageTransitionsBuilder._transitionCurve));
+      CurveTween(curve:FadeForwardsPageTransitionsBuilder._transitionCurve));
 
   // The old page slides back from left to right.
   static final Animatable<Offset> _backwardTranslationTween = Tween<Offset>(
     begin: Offset.zero,
     end: const Offset(0.25, 0.0),
   ).chain(
-      CurveTween(curve:custom_transition.FadeForwardsPageTransitionsBuilder._transitionCurve));
+      CurveTween(curve:FadeForwardsPageTransitionsBuilder._transitionCurve));
 
   @override
   Widget build(BuildContext context) {
@@ -160,7 +160,7 @@ class FadeForwardsPageTransition extends StatelessWidget {
       forwardBuilder:
           (BuildContext context, Animation<double> animation, Widget? child) {
         return FadeTransition(
-          opacity:custom_transition.FadeForwardsPageTransitionsBuilder._fadeInTransition
+          opacity:FadeForwardsPageTransitionsBuilder._fadeInTransition
               .animate(animation),
           child: SlideTransition(
             position: _forwardTranslationTween.animate(animation),
@@ -171,7 +171,7 @@ class FadeForwardsPageTransition extends StatelessWidget {
       reverseBuilder:
           (BuildContext context, Animation<double> animation, Widget? child) {
         return FadeTransition(
-          opacity:custom_transition.FadeForwardsPageTransitionsBuilder._fadeOutTransition
+          opacity:FadeForwardsPageTransitionsBuilder._fadeOutTransition
               .animate(animation),
           child: SlideTransition(
             position: _backwardTranslationTween.animate(animation),
@@ -179,7 +179,7 @@ class FadeForwardsPageTransition extends StatelessWidget {
           ),
         );
       },
-      child:custom_transition.FadeForwardsPageTransitionsBuilder._delegatedTransition(
+      child:FadeForwardsPageTransitionsBuilder._delegatedTransition(
         context,
         secondaryAnimation,
         backgroundColor,
